@@ -6,16 +6,17 @@
 
 :root {
   --gold: #C8960C;
-  --gold-dim: rgba(200, 150, 12, 0.15);
+  --gold-dim: rgba(200, 150, 12, 0.10);
   --gold-border: rgba(200, 150, 12, 0.35);
-  --bg: #0C0C0C;
-  --bg-card: #111111;
-  --bg-input: #161616;
-  --text: #ffffff;
-  --text-muted: #888888;
-  --border: #222222;
+  --bg: #0A0F1E;
+  --bg-alt: #0D1626;
+  --bg-card: #0D1626;
+  --bg-input: #0D1626;
+  --text: #FFFFFF;
+  --text-muted: #8892A4;
+  --border: #1E2D40;
 
-  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  font-family: 'Sora', system-ui, -apple-system, sans-serif;
   font-size: 16px;
   line-height: 1.6;
   color: var(--text);
@@ -48,8 +49,8 @@ button {
   outline: none;
 }
 
-h1, h2, h3 {
-  font-weight: 600;
+h1, h2, h3, h4 {
+  font-weight: 700;
   line-height: 1.15;
   color: var(--text);
 }
