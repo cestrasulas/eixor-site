@@ -8,7 +8,7 @@ function Nav() {
   return (
     <nav className="nav">
       <a href="#inicio" className="nav-logo">
-        <img src="/logo-eixor.jpeg" height="32" alt="EIXOR" />
+        EI<span style={{ color: '#C8960C' }}>X</span>OR
       </a>
 
       <ul className="nav-links">
