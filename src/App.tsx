@@ -2,28 +2,27 @@ import { useState } from 'react'
 import type { FormEvent } from 'react'
 import './App.css'
 
-// ── Header ──────────────────────────────────────────────────────────────────
+// ── Nav ──────────────────────────────────────────────────────────────────────
 
-function Header() {
+function Nav() {
   return (
-    <header className="header">
-      <a href="#inicio" className="header-logo">
-        <img src="/logo-eixor.jpeg" height="36" alt="EIXOR" />
+    <nav className="nav">
+      <a href="#inicio" className="nav-brand">
+        <img src="/logo-eixor.jpeg" height="32" alt="EIXOR" />
+        <span className="nav-brand-text">EIXOR</span>
       </a>
 
-      <nav className="header-nav">
-        <a href="#empresa">Empresa</a>
-        <a href="#sistemas">Sistemas</a>
-        <a href="#expansao">Expansão</a>
-        <a href="#contato">Contato</a>
-      </nav>
+      <ul className="nav-links">
+        <li><a href="#empresa">Empresa</a></li>
+        <li><a href="#sistemas">Sistemas</a></li>
+        <li><a href="#expansao">Expansão</a></li>
+        <li><a href="#contato">Contato</a></li>
+      </ul>
 
-      <div className="header-right">
-        <a href="#contato" className="btn btn-gold-outline">
-          Falar com a EIXOR
-        </a>
-      </div>
-    </header>
+      <a href="#contato" className="btn btn-nav">
+        Falar com a EIXOR
+      </a>
+    </nav>
   )
 }
 
@@ -31,77 +30,77 @@ function Header() {
 
 function Hero() {
   return (
-    <section id="inicio" style={{ background: 'var(--bg)' }}>
-      <div className="hero">
-        {/* Coluna esquerda */}
-        <div>
-          <span className="hero-tag">Ecossistema de sistemas digitais independentes</span>
-          <h1 className="hero-title">
-            Tecnologia especializada para operações reais.
-          </h1>
-          <p className="hero-sub">
-            A EIXOR desenvolve sistemas de gestão com lógica de negócio — cada produto
-            construído para um segmento específico, com profundidade e autonomia operacional.
-          </p>
-          <div className="hero-actions">
-            <a href="#sistemas" className="btn btn-primary">Ver sistemas</a>
-            <a href="#empresa" className="btn btn-secondary">Sobre a empresa</a>
+    <div className="hero-wrap" id="inicio">
+      <div className="container">
+        <div className="hero">
+          {/* Coluna esquerda */}
+          <div>
+            <span className="hero-tag">Ecossistema de sistemas digitais independentes</span>
+            <h1 className="hero-title">
+              Tecnologia especializada<br />
+              para <strong>operações reais.</strong>
+            </h1>
+            <p className="hero-sub">
+              A EIXOR desenvolve sistemas de gestão com lógica de negócio — cada produto
+              construído para um segmento específico, com profundidade e autonomia operacional.
+            </p>
+            <div className="hero-actions">
+              <a href="#sistemas" className="btn btn-dark">Ver sistemas</a>
+              <a href="#empresa" className="btn btn-outline-dark">Sobre a empresa</a>
+            </div>
           </div>
-        </div>
 
-        {/* Coluna direita */}
-        <div className="hero-card">
-          <p className="hero-card-label">Estrutura EIXOR</p>
-          <div className="hero-tree">
-            <div className="hero-tree-item">
-              <div className="hero-tree-line">
-                <div className="hero-tree-dot active" />
-                <div className="hero-tree-connector" />
-              </div>
-              <div className="hero-tree-content">
-                <p className="hero-tree-title">EIXOR — Empresa</p>
-                <p className="hero-tree-desc">
+          {/* Coluna direita */}
+          <div className="hero-card">
+            <div className="hero-card-row">
+              <div className="hero-card-dot active" />
+              <div>
+                <p className="hero-card-title">EIXOR — Empresa</p>
+                <p className="hero-card-sub">
                   Holding de tecnologia responsável por desenvolver e operar sistemas
                   digitais independentes.
                 </p>
-              </div>
-            </div>
-
-            <div className="hero-tree-item">
-              <div className="hero-tree-line">
-                <div className="hero-tree-dot" />
-                <div className="hero-tree-connector" />
-              </div>
-              <div className="hero-tree-content">
-                <p className="hero-tree-title">Sistemas independentes</p>
-                <p className="hero-tree-desc">
-                  Cada sistema opera com lógica própria, voltado a um segmento de mercado.
-                </p>
-                <div className="hero-tree-tags">
-                  <span className="hero-tree-tag live">EIXOR Barber</span>
-                  <span className="hero-tree-tag">EIXOR Saloon</span>
-                  <span className="hero-tree-tag">EIXOR Needle</span>
-                  <span className="hero-tree-tag">EIXOR Psico</span>
-                  <span className="hero-tree-tag">EIXOR Med</span>
+                <div className="hero-card-tags">
+                  <span className="hero-card-tag active">Tecnologia</span>
+                  <span className="hero-card-tag active">Gestão</span>
+                  <span className="hero-card-tag active">Múltiplos segmentos</span>
                 </div>
               </div>
             </div>
 
-            <div className="hero-tree-item">
-              <div className="hero-tree-line">
-                <div className="hero-tree-dot" />
+            <div className="hero-card-row">
+              <div className="hero-card-dot" />
+              <div>
+                <p className="hero-card-title">Sistemas independentes</p>
+                <p className="hero-card-sub">
+                  Cada sistema opera com lógica própria, voltado a um segmento de mercado específico.
+                </p>
+                <div className="hero-card-tags">
+                  <span className="hero-card-tag active">EIXOR Barber</span>
+                  <span className="hero-card-tag">EIXOR Saloon</span>
+                  <span className="hero-card-tag">EIXOR Needle</span>
+                  <span className="hero-card-tag">EIXOR Psico</span>
+                  <span className="hero-card-tag">EIXOR Med</span>
+                </div>
               </div>
-              <div className="hero-tree-content">
-                <p className="hero-tree-title">Expansão contínua</p>
-                <p className="hero-tree-desc">
+            </div>
+
+            <div className="hero-card-row">
+              <div className="hero-card-dot" />
+              <div>
+                <p className="hero-card-title">Expansão contínua</p>
+                <p className="hero-card-sub">
                   Novos segmentos mapeados e sistemas em desenvolvimento constante.
                 </p>
+                <div className="hero-card-tags">
+                  <span className="hero-card-tag">Em curso</span>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </section>
+    </div>
   )
 }
 
@@ -127,21 +126,19 @@ function Empresa() {
   ]
 
   return (
-    <div className="section-wrap alt" id="empresa">
-      <div className="section">
-        <p className="section-label">Empresa</p>
-        <h2 className="section-title">
-          Uma empresa construída para desenvolver<br />sistemas com lógica de negócio.
-        </h2>
-        <p className="section-subtitle">
-          A EIXOR não é uma agência nem uma fábrica de software. É uma empresa de
-          tecnologia que escolheu os segmentos em que vai se tornar referência — e
-          trabalha com seriedade para isso acontecer.
-        </p>
-        <div className="pillars-grid">
+    <div className="empresa-wrap" id="empresa">
+      <div className="container">
+        <div className="empresa-header">
+          <p className="section-label">Empresa</p>
+          <h2 className="section-title">
+            Uma empresa construída para desenvolver<br />
+            <strong>sistemas com lógica de negócio.</strong>
+          </h2>
+        </div>
+        <div className="pillars-gap">
           {pillars.map((p) => (
-            <div key={p.num} className="pillar-card">
-              <p className="pillar-number">{p.num}</p>
+            <div key={p.num} className="pillar">
+              <p className="pillar-num">{p.num}</p>
               <h3 className="pillar-title">{p.title}</h3>
               <p className="pillar-desc">{p.desc}</p>
             </div>
@@ -157,35 +154,29 @@ function Empresa() {
 function ComoPensamos() {
   const items = [
     {
-      icon: '◈',
       title: 'Estrutura antes de interface',
       desc: 'Antes de qualquer tela, definimos a lógica: quais entidades existem, como se relacionam, quais regras governam cada operação.',
     },
     {
-      icon: '◎',
       title: 'Fluxo como centro do produto',
-      desc: 'O sistema deve refletir como a operação realmente acontece — não como uma versão idealizada dela. Adaptamos o software ao negócio, não o contrário.',
+      desc: 'O sistema deve refletir como a operação realmente acontece — não uma versão idealizada. Adaptamos o software ao negócio, não o contrário.',
     },
     {
-      icon: '◇',
-      title: 'Evolução com dados',
+      title: 'Evolução com dados reais',
       desc: 'Cada sistema coleta métricas relevantes para o segmento. A próxima versão é sempre informada pelo uso real, não por achismo.',
     },
   ]
 
   return (
-    <div className="section-wrap" id="produto">
-      <div className="section">
+    <div className="thinking-wrap" id="produto">
+      <div className="container">
         <p className="section-label">Como pensamos produto</p>
-        <h2 className="section-title">Produto não é interface. É estrutura.</h2>
-        <p className="section-subtitle">
-          Construir software sério exige pensar antes de codificar. Cada sistema EIXOR
-          nasce de uma análise profunda da operação que vai servir.
-        </p>
-        <div className="product-thinking-grid">
+        <h2 className="section-title">
+          Produto não é interface.<br /><strong>É estrutura.</strong>
+        </h2>
+        <div className="thinking-grid">
           {items.map((item) => (
             <div key={item.title} className="thinking-card">
-              <div className="thinking-icon">{item.icon}</div>
               <h3 className="thinking-title">{item.title}</h3>
               <p className="thinking-desc">{item.desc}</p>
             </div>
@@ -198,75 +189,90 @@ function ComoPensamos() {
 
 // ── Sistemas ──────────────────────────────────────────────────────────────────
 
-type SystemStatus = 'live' | 'dev' | 'expansion'
+type SysStatus = 'live' | 'dev' | 'expansion'
 
-interface SystemItem {
-  name: string
+interface SysItem {
+  prefix: string
+  product: string
   desc: string
-  status: SystemStatus
+  status: SysStatus
   link?: string
 }
 
-const systems: SystemItem[] = [
+const systems: SysItem[] = [
   {
-    name: 'EIXOR Barber',
-    desc: 'Gestão completa para barbearias: agendamento online, controle de caixa, fila de espera e relacionamento com clientes. Primeiro sistema em produção do ecossistema.',
+    prefix: 'EIXOR',
+    product: ' Barber',
+    desc: 'Gestão completa para barbearias: agendamento online, controle de caixa, fila de espera e relacionamento com clientes.',
     status: 'live',
     link: 'https://barber.eixor.com.br',
   },
   {
-    name: 'EIXOR Saloon',
+    prefix: 'EIXOR',
+    product: ' Saloon',
     desc: 'Plataforma de gestão para salões de beleza. Agendamentos, fichas de cliente, controle de comissões e fluxo de caixa.',
     status: 'dev',
   },
   {
-    name: 'EIXOR Needle',
-    desc: 'Sistema para estúdios de tatuagem e piercing. Gestão de sessões, catálogo de arte, agenda de artistas e acompanhamento pós-sessão.',
+    prefix: 'EIXOR',
+    product: ' Needle',
+    desc: 'Sistema para estúdios de tatuagem e piercing. Gestão de sessões, catálogo de arte e agenda de artistas.',
     status: 'dev',
   },
   {
-    name: 'EIXOR Nails',
-    desc: 'Gestão para nail designers e estúdios de nail art. Agendamento, catálogo de serviços, controle de insumos e fidelização de clientes.',
+    prefix: 'EIXOR',
+    product: ' Nails',
+    desc: 'Gestão para nail designers e estúdios de nail art. Agendamento, catálogo de serviços e fidelização de clientes.',
     status: 'dev',
   },
   {
-    name: 'EIXOR Psico',
-    desc: 'Sistema de gestão para psicólogos e clínicas de psicologia. Prontuário digital, agendamento, sessões e faturamento.',
+    prefix: 'EIXOR',
+    product: ' Psico',
+    desc: 'Sistema para psicólogos e clínicas de psicologia. Prontuário digital, agendamento e faturamento.',
     status: 'dev',
   },
   {
-    name: 'EIXOR Med',
-    desc: 'Plataforma para médicos e clínicas. Prontuário eletrônico, agenda inteligente, prescrição digital e gestão de consultório.',
+    prefix: 'EIXOR',
+    product: ' Med',
+    desc: 'Plataforma para médicos e clínicas. Prontuário eletrônico, agenda inteligente e gestão de consultório.',
     status: 'dev',
   },
   {
-    name: 'EIXOR +',
+    prefix: 'EIXOR',
+    product: ' +',
     desc: 'Novos segmentos sendo mapeados. Cada sistema que entra no ecossistema passa por análise criteriosa antes do desenvolvimento.',
     status: 'expansion',
   },
 ]
 
-function statusLabel(s: SystemStatus) {
-  if (s === 'live') return 'Em operação'
-  if (s === 'dev') return 'Em desenvolvimento'
-  return 'Expansão'
-}
-
-function SystemCard({ item }: { item: SystemItem }) {
-  const cardClass = `system-card ${item.status === 'live' ? 'gold' : item.status === 'expansion' ? 'dashed' : ''}`
-  const statusClass = `system-status ${item.status === 'live' ? 'status-live' : item.status === 'expansion' ? 'status-expansion' : 'status-dev'}`
+function SysCard({ item }: { item: SysItem }) {
+  const cardClass = `system-card${item.status === 'live' ? ' active' : item.status === 'expansion' ? ' dashed' : ''}`
 
   return (
     <div className={cardClass}>
-      <span className={statusClass}>{statusLabel(item.status)}</span>
-      <h3 className="system-name">{item.name}</h3>
+      {item.status === 'live' && (
+        <span className="system-badge badge-live">Em operação</span>
+      )}
+      {item.status === 'dev' && (
+        <span className="system-badge badge-dev">Em desenvolvimento</span>
+      )}
+      {item.status === 'expansion' && (
+        <span className="system-badge badge-expansion">Expansão</span>
+      )}
+
+      <h3 className="system-name">
+        <span className="eixor">{item.prefix}</span>
+        <span className="product">{item.product}</span>
+      </h3>
+
       <p className="system-desc">{item.desc}</p>
+
       {item.status === 'live' && item.link ? (
         <a href={item.link} target="_blank" rel="noopener noreferrer" className="system-link">
           Acessar sistema →
         </a>
       ) : item.status === 'expansion' ? (
-        <a href="#contato" className="system-link">Entre em contato →</a>
+        <a href="#contato" className="system-link">Entrar em contato →</a>
       ) : (
         <span className="system-link-disabled">Em desenvolvimento</span>
       )}
@@ -276,17 +282,15 @@ function SystemCard({ item }: { item: SystemItem }) {
 
 function Sistemas() {
   return (
-    <div className="section-wrap alt" id="sistemas">
-      <div className="section">
+    <div className="sistemas-wrap" id="sistemas">
+      <div className="container">
         <p className="section-label">Sistemas</p>
-        <h2 className="section-title">Um ecossistema em construção.</h2>
-        <p className="section-subtitle">
-          Cada sistema é independente, com lógica própria para o segmento que serve.
-          Desenvolvidos com profundidade, não apenas como ferramentas genéricas.
-        </p>
-        <div className="systems-grid">
+        <h2 className="section-title">
+          Um ecossistema <strong>em construção.</strong>
+        </h2>
+        <div className="sistemas-grid">
           {systems.map((s) => (
-            <SystemCard key={s.name} item={s} />
+            <SysCard key={s.product} item={s} />
           ))}
         </div>
       </div>
@@ -298,12 +302,14 @@ function Sistemas() {
 
 function Expansao() {
   return (
-    <div className="section-wrap" id="expansao">
-      <div className="section">
-        <div className="expansion-inner">
-          <div className="expansion-text">
+    <div className="expansao-wrap" id="expansao">
+      <div className="container">
+        <div className="expansao-inner">
+          <div className="expansao-text">
             <p className="section-label">Expansão</p>
-            <h2 className="section-title">Novos sistemas. Novos segmentos.</h2>
+            <h2 className="section-title">
+              Novos sistemas.<br /><strong>Novos segmentos.</strong>
+            </h2>
             <p>
               O ecossistema EIXOR cresce de forma planejada. Antes de qualquer linha de código,
               mapeamos o segmento: entendemos as operações, identificamos as lacunas e validamos
@@ -320,20 +326,18 @@ function Expansao() {
             </p>
           </div>
 
-          <div className="expansion-highlight">
-            <div className="expansion-stat">
-              <span className="expansion-stat-num">1</span>
-              <span className="expansion-stat-label">Sistema em operação</span>
+          <div className="expansao-stats">
+            <div className="expansao-stat">
+              <div className="expansao-stat-num">1</div>
+              <div className="expansao-stat-label">Sistema em operação</div>
             </div>
-            <div style={{ height: '1px', background: 'var(--border)' }} />
-            <div className="expansion-stat">
-              <span className="expansion-stat-num">5+</span>
-              <span className="expansion-stat-label">Sistemas em desenvolvimento</span>
+            <div className="expansao-stat">
+              <div className="expansao-stat-num">5+</div>
+              <div className="expansao-stat-label">Sistemas em desenvolvimento</div>
             </div>
-            <div style={{ height: '1px', background: 'var(--border)' }} />
-            <div className="expansion-stat">
-              <span className="expansion-stat-num">∞</span>
-              <span className="expansion-stat-label">Segmentos sendo mapeados</span>
+            <div className="expansao-stat">
+              <div className="expansao-stat-num">∞</div>
+              <div className="expansao-stat-label">Segmentos sendo mapeados</div>
             </div>
           </div>
         </div>
@@ -347,44 +351,35 @@ function Expansao() {
 function ParaQuem() {
   const items = [
     {
-      icon: '✂',
       title: 'Profissionais autônomos',
-      desc: 'Barbeiros, cabeleireiros, tatuadores e outros profissionais que trabalham por conta própria e precisam de um sistema que funcione sem burocracia.',
+      desc: 'Barbeiros, cabeleireiros, tatuadores e outros profissionais que trabalham por conta própria e precisam de um sistema sem burocracia.',
     },
     {
-      icon: '◻',
       title: 'Donos de estabelecimento',
-      desc: 'Proprietários de barbearias, salões, clínicas e estúdios que precisam controlar a operação, a equipe e os resultados em um só lugar.',
+      desc: 'Proprietários de barbearias, salões, clínicas e estúdios que precisam controlar operação, equipe e resultados em um só lugar.',
     },
     {
-      icon: '⊕',
       title: 'Clínicas e consultórios',
-      desc: 'Profissionais da saúde — psicólogos, médicos e especialistas — que buscam um sistema focado na sua área, não uma solução genérica adaptada.',
+      desc: 'Profissionais da saúde — psicólogos, médicos — que buscam um sistema focado na sua área, não uma solução genérica adaptada.',
     },
     {
-      icon: '◈',
       title: 'Negócios em crescimento',
-      desc: 'Operações que cresceram e precisam de mais controle: múltiplos profissionais, relatórios, histórico de clientes e gestão financeira integrada.',
+      desc: 'Operações que cresceram e precisam de mais controle: múltiplos profissionais, relatórios e gestão financeira integrada.',
     },
   ]
 
   return (
-    <div className="section-wrap alt" id="para-quem">
-      <div className="section">
+    <div className="paraquem-wrap" id="para-quem">
+      <div className="container">
         <p className="section-label">Para quem</p>
-        <h2 className="section-title">Para quem opera de verdade.</h2>
-        <p className="section-subtitle">
-          Os sistemas EIXOR são feitos para profissionais e negócios que precisam de
-          tecnologia que respeite a realidade do dia a dia — sem excesso, sem falta.
-        </p>
+        <h2 className="section-title">
+          Para quem <strong>opera de verdade.</strong>
+        </h2>
         <div className="audience-grid">
           {items.map((item) => (
             <div key={item.title} className="audience-card">
-              <div className="audience-icon">{item.icon}</div>
-              <div>
-                <h3 className="audience-title">{item.title}</h3>
-                <p className="audience-desc">{item.desc}</p>
-              </div>
+              <h3 className="audience-title">{item.title}</h3>
+              <p className="audience-desc">{item.desc}</p>
             </div>
           ))}
         </div>
@@ -404,23 +399,21 @@ function Contato() {
   }
 
   return (
-    <div className="section-wrap" id="contato">
-      <div className="section">
-        <div className="contact-grid">
-          <div className="contact-info">
+    <div className="contato-wrap" id="contato">
+      <div className="container">
+        <div className="contato-grid">
+          <div>
             <p className="section-label">Contato</p>
-            <h2 className="section-title">Fale com a EIXOR.</h2>
-            <p>
-              Tem dúvidas sobre nossos sistemas, quer entender como podemos ajudar sua operação,
-              ou está pensando em sugerir um novo segmento? Manda mensagem.
+            <h2 className="contato-title">Fale com a EIXOR.</h2>
+            <p className="contato-sub">
+              Dúvidas sobre nossos sistemas, interesse em parcerias ou quer sugerir um
+              novo segmento? Manda mensagem.
             </p>
-            <div className="contact-detail">
-              <div className="contact-item">
-                <span className="contact-item-icon">✉</span>
+            <div className="contato-detail">
+              <div className="contato-item">
                 <span>contato@eixor.com.br</span>
               </div>
-              <div className="contact-item">
-                <span className="contact-item-icon">⊕</span>
+              <div className="contato-item">
                 <span>Brasil — atendimento em português</span>
               </div>
             </div>
@@ -447,14 +440,14 @@ function Contato() {
                 </div>
 
                 <div className="form-group">
-                  <label htmlFor="empresa">Empresa / Estabelecimento</label>
-                  <input id="empresa" type="text" placeholder="Nome do seu negócio (opcional)" />
+                  <label htmlFor="empresa-field">Empresa / Estabelecimento</label>
+                  <input id="empresa-field" type="text" placeholder="Nome do seu negócio (opcional)" />
                 </div>
 
                 <div className="form-group">
                   <label htmlFor="assunto">Assunto</label>
                   <select id="assunto" required>
-                    <option value="">Selecione o assunto...</option>
+                    <option value="">Selecione...</option>
                     <option value="demo">Quero conhecer um sistema</option>
                     <option value="barber">EIXOR Barber</option>
                     <option value="outros">Outros sistemas em desenvolvimento</option>
@@ -468,13 +461,13 @@ function Contato() {
                   <label htmlFor="mensagem">Mensagem</label>
                   <textarea
                     id="mensagem"
-                    placeholder="Descreva o que você precisa ou o que está pensando..."
+                    placeholder="Descreva o que você precisa..."
                     required
                   />
                 </div>
 
                 <div className="form-submit">
-                  <button type="submit" className="btn btn-primary">
+                  <button type="submit" className="btn btn-blue">
                     Enviar mensagem
                   </button>
                 </div>
@@ -495,7 +488,7 @@ function Footer() {
       <div className="footer-inner">
         {/* Coluna 1 — Institucional */}
         <div className="footer-brand">
-          <img src="/logo-eixor.jpeg" height="28" alt="EIXOR" />
+          <img src="/logo-eixor.jpeg" height="28" alt="EIXOR" style={{ filter: 'brightness(0) invert(1)', opacity: 0.8 }} />
           <p>
             Empresa de tecnologia especializada no desenvolvimento de sistemas de gestão
             para segmentos específicos. Tecnologia com lógica de negócio.
@@ -529,8 +522,10 @@ function Footer() {
       </div>
 
       <div className="footer-bottom">
-        <span className="footer-copy">© 2026 EIXOR. Todos os direitos reservados.</span>
-        <span className="footer-copy">CNPJ disponível em breve</span>
+        <div className="footer-bottom-inner">
+          <span className="footer-copy">© 2026 EIXOR. Todos os direitos reservados.</span>
+          <span className="footer-copy">contato@eixor.com.br</span>
+        </div>
       </div>
     </footer>
   )
@@ -541,7 +536,7 @@ function Footer() {
 export default function App() {
   return (
     <>
-      <Header />
+      <Nav />
       <Hero />
       <Empresa />
       <ComoPensamos />
