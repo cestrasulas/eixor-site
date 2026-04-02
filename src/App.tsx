@@ -7,9 +7,8 @@ import './App.css'
 function Nav() {
   return (
     <nav className="nav">
-      <a href="#inicio" className="nav-brand">
+      <a href="#inicio" className="nav-logo">
         <img src="/logo-eixor.jpeg" height="32" alt="EIXOR" />
-        <span className="nav-brand-text">EIXOR</span>
       </a>
 
       <ul className="nav-links">
@@ -38,15 +37,15 @@ function Hero() {
             <span className="hero-tag">Ecossistema de sistemas digitais independentes</span>
             <h1 className="hero-title">
               Tecnologia especializada<br />
-              para <strong>operações reais.</strong>
+              para operações <strong>reais.</strong>
             </h1>
             <p className="hero-sub">
               A EIXOR desenvolve sistemas de gestão com lógica de negócio — cada produto
               construído para um segmento específico, com profundidade e autonomia operacional.
             </p>
             <div className="hero-actions">
-              <a href="#sistemas" className="btn btn-dark">Ver sistemas</a>
-              <a href="#empresa" className="btn btn-outline-dark">Sobre a empresa</a>
+              <a href="#sistemas" className="btn btn-primary">Ver sistemas</a>
+              <a href="#empresa" className="btn btn-secondary">Sobre a empresa</a>
             </div>
           </div>
 
@@ -141,44 +140,6 @@ function Empresa() {
               <p className="pillar-num">{p.num}</p>
               <h3 className="pillar-title">{p.title}</h3>
               <p className="pillar-desc">{p.desc}</p>
-            </div>
-          ))}
-        </div>
-      </div>
-    </div>
-  )
-}
-
-// ── Como Pensamos Produto ─────────────────────────────────────────────────────
-
-function ComoPensamos() {
-  const items = [
-    {
-      title: 'Estrutura antes de interface',
-      desc: 'Antes de qualquer tela, definimos a lógica: quais entidades existem, como se relacionam, quais regras governam cada operação.',
-    },
-    {
-      title: 'Fluxo como centro do produto',
-      desc: 'O sistema deve refletir como a operação realmente acontece — não uma versão idealizada. Adaptamos o software ao negócio, não o contrário.',
-    },
-    {
-      title: 'Evolução com dados reais',
-      desc: 'Cada sistema coleta métricas relevantes para o segmento. A próxima versão é sempre informada pelo uso real, não por achismo.',
-    },
-  ]
-
-  return (
-    <div className="thinking-wrap" id="produto">
-      <div className="container">
-        <p className="section-label">Como pensamos produto</p>
-        <h2 className="section-title">
-          Produto não é interface.<br /><strong>É estrutura.</strong>
-        </h2>
-        <div className="thinking-grid">
-          {items.map((item) => (
-            <div key={item.title} className="thinking-card">
-              <h3 className="thinking-title">{item.title}</h3>
-              <p className="thinking-desc">{item.desc}</p>
             </div>
           ))}
         </div>
@@ -298,96 +259,6 @@ function Sistemas() {
   )
 }
 
-// ── Expansão ──────────────────────────────────────────────────────────────────
-
-function Expansao() {
-  return (
-    <div className="expansao-wrap" id="expansao">
-      <div className="container">
-        <div className="expansao-inner">
-          <div className="expansao-text">
-            <p className="section-label">Expansão</p>
-            <h2 className="section-title">
-              Novos sistemas.<br /><strong>Novos segmentos.</strong>
-            </h2>
-            <p>
-              O ecossistema EIXOR cresce de forma planejada. Antes de qualquer linha de código,
-              mapeamos o segmento: entendemos as operações, identificamos as lacunas e validamos
-              se existe espaço para um sistema especializado.
-            </p>
-            <p>
-              Não construímos sistemas para ter portfólio. Construímos quando temos convicção de
-              que podemos ser referência — e quando a lógica de negócio do segmento justifica
-              um produto próprio.
-            </p>
-            <p>
-              Se você opera num segmento que ainda não tem um sistema EIXOR, entre em contato.
-              Cada conversa pode ser o início do próximo produto do ecossistema.
-            </p>
-          </div>
-
-          <div className="expansao-stats">
-            <div className="expansao-stat">
-              <div className="expansao-stat-num">1</div>
-              <div className="expansao-stat-label">Sistema em operação</div>
-            </div>
-            <div className="expansao-stat">
-              <div className="expansao-stat-num">5+</div>
-              <div className="expansao-stat-label">Sistemas em desenvolvimento</div>
-            </div>
-            <div className="expansao-stat">
-              <div className="expansao-stat-num">∞</div>
-              <div className="expansao-stat-label">Segmentos sendo mapeados</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  )
-}
-
-// ── Para Quem ─────────────────────────────────────────────────────────────────
-
-function ParaQuem() {
-  const items = [
-    {
-      title: 'Profissionais autônomos',
-      desc: 'Barbeiros, cabeleireiros, tatuadores e outros profissionais que trabalham por conta própria e precisam de um sistema sem burocracia.',
-    },
-    {
-      title: 'Donos de estabelecimento',
-      desc: 'Proprietários de barbearias, salões, clínicas e estúdios que precisam controlar operação, equipe e resultados em um só lugar.',
-    },
-    {
-      title: 'Clínicas e consultórios',
-      desc: 'Profissionais da saúde — psicólogos, médicos — que buscam um sistema focado na sua área, não uma solução genérica adaptada.',
-    },
-    {
-      title: 'Negócios em crescimento',
-      desc: 'Operações que cresceram e precisam de mais controle: múltiplos profissionais, relatórios e gestão financeira integrada.',
-    },
-  ]
-
-  return (
-    <div className="paraquem-wrap" id="para-quem">
-      <div className="container">
-        <p className="section-label">Para quem</p>
-        <h2 className="section-title">
-          Para quem <strong>opera de verdade.</strong>
-        </h2>
-        <div className="audience-grid">
-          {items.map((item) => (
-            <div key={item.title} className="audience-card">
-              <h3 className="audience-title">{item.title}</h3>
-              <p className="audience-desc">{item.desc}</p>
-            </div>
-          ))}
-        </div>
-      </div>
-    </div>
-  )
-}
-
 // ── Contato ──────────────────────────────────────────────────────────────────
 
 function Contato() {
@@ -410,12 +281,8 @@ function Contato() {
               novo segmento? Manda mensagem.
             </p>
             <div className="contato-detail">
-              <div className="contato-item">
-                <span>contato@eixor.com.br</span>
-              </div>
-              <div className="contato-item">
-                <span>Brasil — atendimento em português</span>
-              </div>
+              <div className="contato-item">contato@eixor.com.br</div>
+              <div className="contato-item">Brasil — atendimento em português</div>
             </div>
           </div>
 
@@ -488,7 +355,7 @@ function Footer() {
       <div className="footer-inner">
         {/* Coluna 1 — Institucional */}
         <div className="footer-brand">
-          <img src="/logo-eixor.jpeg" height="28" alt="EIXOR" style={{ filter: 'brightness(0) invert(1)', opacity: 0.8 }} />
+          <span className="footer-brand-name">EIXOR</span>
           <p>
             Empresa de tecnologia especializada no desenvolvimento de sistemas de gestão
             para segmentos específicos. Tecnologia com lógica de negócio.
@@ -500,9 +367,8 @@ function Footer() {
           <p className="footer-col-title">Empresa</p>
           <ul>
             <li><a href="#empresa">Sobre a EIXOR</a></li>
-            <li><a href="#produto">Como pensamos produto</a></li>
-            <li><a href="#expansao">Expansão</a></li>
-            <li><a href="#para-quem">Para quem</a></li>
+            <li><a href="#empresa">Como pensamos produto</a></li>
+            <li><a href="#sistemas">Expansão</a></li>
             <li><a href="#contato">Contato</a></li>
           </ul>
         </div>
@@ -539,10 +405,7 @@ export default function App() {
       <Nav />
       <Hero />
       <Empresa />
-      <ComoPensamos />
       <Sistemas />
-      <Expansao />
-      <ParaQuem />
       <Contato />
       <Footer />
     </>
