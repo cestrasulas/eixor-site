@@ -53,7 +53,7 @@
   text-decoration: none;
 }
 .nav-logo-img {
-  height: 200px;
+  height: 38px;
   width: auto;
   display: block;
   transition: opacity 0.2s;
@@ -67,7 +67,7 @@
 }
 .nav-links a {
   font-size: 13px;
-  color: rgba(255,255,255,0.45);
+  color: rgba(255,255,255,0.65);
   font-weight: 400;
   transition: color 0.2s;
 }
@@ -126,7 +126,7 @@
   gap: 8px;
   font-size: 11px;
   font-weight: 600;
-  color: rgba(255,255,255,0.38);
+  color: rgba(255,255,255,0.55);
   letter-spacing: 0.16em;
   text-transform: uppercase;
   margin-bottom: 32px;
@@ -156,7 +156,7 @@
 .hero-title em { font-style: normal; color: var(--blue-light); }
 .hero-sub {
   font-size: 17px;
-  color: rgba(255,255,255,0.42);
+  color: rgba(255,255,255,0.60);
   line-height: 1.8;
   max-width: 500px;
   margin-bottom: 44px;
@@ -182,8 +182,8 @@
   font-size: 14px;
   font-weight: 500;
   padding: 13px 24px;
-  color: rgba(255,255,255,0.5);
-  border: 1px solid rgba(255,255,255,0.14);
+  color: rgba(255,255,255,0.70);
+  border: 1px solid rgba(255,255,255,0.25);
   border-radius: 6px;
   transition: color 0.2s, border-color 0.2s;
 }
@@ -212,7 +212,7 @@
 .stat-val em { font-style: normal; color: var(--blue-light); }
 .stat-label {
   font-size: 11px;
-  color: rgba(255,255,255,0.28);
+  color: rgba(255,255,255,0.55);
   margin-top: 6px;
   font-weight: 400;
 }
@@ -236,7 +236,7 @@
 .ticker-item {
   font-size: 11px;
   font-weight: 500;
-  color: rgba(255,255,255,0.2);
+  color: rgba(255,255,255,0.35);
   letter-spacing: 0.14em;
   text-transform: uppercase;
   padding: 0 28px;
@@ -428,7 +428,7 @@
 }
 .contato-sub {
   font-size: 15px;
-  color: rgba(255,255,255,0.33);
+  color: rgba(255,255,255,0.60);
   line-height: 1.75;
   margin-bottom: 32px;
 }
@@ -445,7 +445,7 @@
 }
 .contato-loc {
   font-size: 13px;
-  color: rgba(255,255,255,0.22);
+  color: rgba(255,255,255,0.50);
   margin-top: 8px;
 }
 .form {
@@ -468,7 +468,7 @@
   font-weight: 700;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: rgba(255,255,255,0.22);
+  color: rgba(255,255,255,0.60);
 }
 .form-group input,
 .form-group select,
@@ -478,14 +478,14 @@
   border-radius: 6px;
   padding: 12px 14px;
   font-size: 13px;
-  color: rgba(255,255,255,0.7);
+  color: rgba(255,255,255,0.85);
   font-family: inherit;
   transition: border-color 0.2s;
   outline: none;
   width: 100%;
 }
 .form-group input::placeholder,
-.form-group textarea::placeholder { color: rgba(255,255,255,0.18); }
+.form-group textarea::placeholder { color: rgba(255,255,255,0.35); }
 .form-group select option { background: #1e2433; }
 .form-group input:focus,
 .form-group select:focus,
@@ -516,7 +516,7 @@
 }
 .form-success-icon { font-size: 28px; color: var(--blue-light); margin-bottom: 16px; }
 .form-success h3 { font-size: 18px; font-weight: 600; color: #fff; margin-bottom: 8px; }
-.form-success p { font-size: 14px; color: rgba(255,255,255,0.35); }
+.form-success p { font-size: 14px; color: rgba(255,255,255,0.60); }
 
 /* ── Footer ── */
 .footer {
@@ -532,7 +532,7 @@
   gap: 48px;
 }
 .footer-logo-img {
-  height: 200px;
+  height: 48px;
   width: auto;
   display: block;
   margin-bottom: 16px;
@@ -540,7 +540,7 @@
 }
 .footer-brand p {
   font-size: 13px;
-  color: rgba(255,255,255,0.18);
+  color: rgba(255,255,255,0.55);
   line-height: 1.75;
   max-width: 260px;
 }
@@ -549,7 +549,7 @@
   font-weight: 700;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: rgba(255,255,255,0.18);
+  color: rgba(255,255,255,0.45);
   margin-bottom: 20px;
 }
 .footer-col ul {
@@ -560,10 +560,10 @@
 }
 .footer-col ul li a {
   font-size: 13px;
-  color: rgba(255,255,255,0.22);
+  color: rgba(255,255,255,0.55);
   transition: color 0.2s;
 }
-.footer-col ul li a:hover { color: rgba(255,255,255,0.55); }
+.footer-col ul li a:hover { color: rgba(255,255,255,0.85); }
 .footer-bottom {
   max-width: 1160px;
   margin: 0 auto;
@@ -578,7 +578,7 @@
 }
 .footer-copy {
   font-size: 12px;
-  color: rgba(255,255,255,0.14);
+  color: rgba(255,255,255,0.40);
 }
 
 /* ── Produtos intro ── */
@@ -777,4 +777,12 @@
 @media (max-width: 480px) {
   .hero-actions { flex-direction: column; }
   .hero-actions a { width: 100%; text-align: center; justify-content: center; }
+}
+
+/* ── Acessibilidade: menos movimento ── */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .fade-in { opacity: 1; transform: none; transition: none; }
+  .ticker-track { animation: none; flex-wrap: wrap; white-space: normal; }
+  .pill-dot, .live-dot, .juridica-dot { animation: none; }
 }
