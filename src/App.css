@@ -413,94 +413,6 @@
 }
 .card-cta:hover { gap: 8px; }
 
-/* Card Incorp */
-.card-incorp {
-  background: #fff;
-  border: 1px solid #dce2f0;
-  border-radius: 12px;
-  padding: 36px;
-  display: flex;
-  flex-direction: column;
-  gap: 18px;
-  position: relative;
-  overflow: hidden;
-}
-.card-incorp::before {
-  content: '';
-  position: absolute;
-  top: 0; left: 0; bottom: 0;
-  width: 3px;
-  background: linear-gradient(180deg, var(--blue), var(--blue-pale));
-}
-.incorp-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  font-size: 10px;
-  font-weight: 700;
-  color: var(--blue);
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  background: var(--blue-bg);
-  border: 1px solid var(--blue-border);
-  padding: 4px 12px;
-  border-radius: 20px;
-  width: fit-content;
-}
-.incorp-dot {
-  width: 4px; height: 4px;
-  border-radius: 50%;
-  background: var(--blue);
-  opacity: 0.6;
-}
-.incorp-name {
-  font-size: 21px;
-  font-weight: 800;
-  color: var(--text-primary);
-  letter-spacing: -0.02em;
-  line-height: 1.2;
-}
-.incorp-name span { color: var(--blue); }
-.incorp-desc {
-  font-size: 13px;
-  color: var(--text-mid);
-  line-height: 1.75;
-}
-.incorp-features {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  flex: 1;
-}
-.incorp-feature {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  font-size: 13px;
-  color: #555;
-}
-.incorp-feature::before {
-  content: '';
-  width: 4px; height: 4px;
-  border-radius: 50%;
-  background: var(--blue);
-  flex-shrink: 0;
-  opacity: 0.5;
-}
-.incorp-foot {
-  font-size: 12px;
-  color: #bbb;
-  padding-top: 16px;
-  border-top: 1px solid #f0f0f0;
-  margin-top: auto;
-}
-.incorp-foot a {
-  color: var(--blue);
-  font-weight: 500;
-  transition: opacity 0.2s;
-}
-.incorp-foot a:hover { opacity: 0.75; }
-
 /* ── Contato ── */
 .contato-wrap {
   padding: 88px 0;
@@ -616,8 +528,8 @@
   margin: 0 auto;
   padding: 48px 48px 0;
   display: grid;
-  grid-template-columns: 1.4fr 1fr 1fr;
-  gap: 64px;
+  grid-template-columns: 1.4fr 1fr 1fr 1fr;
+  gap: 48px;
 }
 .footer-logo-img {
   height: 200px;
@@ -669,6 +581,166 @@
   color: rgba(255,255,255,0.14);
 }
 
+/* ── Produtos intro ── */
+.produtos-intro {
+  font-size: 15px;
+  color: var(--text-mid);
+  line-height: 1.85;
+  max-width: 620px;
+  margin-top: -28px;
+  margin-bottom: 60px;
+}
+
+/* ── Vertical blocks ── */
+.vertical-block {
+  margin-bottom: 72px;
+}
+.vertical-block:last-child { margin-bottom: 0; }
+
+.vertical-header {
+  margin-bottom: 20px;
+}
+.vertical-label-wrap {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+.vertical-num {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--blue);
+  letter-spacing: 0.14em;
+  opacity: 0.4;
+}
+.vertical-name {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--text-primary);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+.vertical-sub {
+  font-size: 14px;
+  color: var(--text-mid);
+  line-height: 1.8;
+  max-width: 600px;
+}
+
+/* ── Juridica grid ── */
+.juridica-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+.juridica-card {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  position: relative;
+  overflow: hidden;
+}
+.juridica-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+}
+.juridica-card--dev::before {
+  background: linear-gradient(90deg, var(--blue), var(--blue-pale));
+}
+.juridica-card--soon::before {
+  background: linear-gradient(90deg, #d0d0d0, #e8e8e8);
+}
+.juridica-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 4px 12px;
+  border-radius: 20px;
+  width: fit-content;
+}
+.juridica-badge--dev {
+  background: var(--blue-bg);
+  border: 1px solid var(--blue-border);
+  color: var(--blue);
+}
+.juridica-badge--soon {
+  background: #f4f4f4;
+  border: 1px solid #e0e0e0;
+  color: #999;
+}
+.juridica-dot {
+  width: 4px; height: 4px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+.juridica-badge--dev .juridica-dot {
+  background: var(--blue);
+  animation: blink 2s ease-in-out infinite;
+}
+.juridica-badge--soon .juridica-dot { background: #ccc; }
+.juridica-card-name {
+  font-size: 18px;
+  font-weight: 800;
+  color: var(--text-primary);
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+}
+.juridica-card-desc {
+  font-size: 13px;
+  color: var(--text-mid);
+  line-height: 1.72;
+}
+.juridica-features {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+  flex: 1;
+  margin-top: 4px;
+}
+.juridica-feature {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 13px;
+  color: #555;
+  line-height: 1.5;
+}
+.juridica-feature::before {
+  content: '';
+  width: 4px; height: 4px;
+  border-radius: 50%;
+  background: var(--blue);
+  flex-shrink: 0;
+  opacity: 0.45;
+  margin-top: 6px;
+}
+.juridica-foot {
+  font-size: 13px;
+  color: #bbb;
+  padding-top: 20px;
+  margin-top: 4px;
+  border-top: 1px solid #eeeeee;
+}
+.juridica-foot a {
+  color: var(--blue);
+  font-weight: 500;
+  transition: opacity 0.2s;
+}
+.juridica-foot a:hover { opacity: 0.75; }
+
 /* ── Responsive ── */
 @media (max-width: 1024px) {
   .container { padding: 0 32px; }
@@ -677,8 +749,9 @@
   .empresa-wrap, .produtos-wrap, .contato-wrap { padding: 64px 0; }
   .pillars { grid-template-columns: 1fr; }
   .produtos-grid { grid-template-columns: 1fr; }
+  .juridica-grid { grid-template-columns: 1fr 1fr; }
   .contato-grid { grid-template-columns: 1fr; gap: 48px; }
-  .footer-inner { grid-template-columns: 1fr 1fr; gap: 40px; padding: 40px 32px 0; }
+  .footer-inner { grid-template-columns: 1fr 1fr; gap: 36px; padding: 40px 32px 0; }
   .footer-bottom { padding: 20px 32px; }
 }
 
@@ -689,10 +762,16 @@
   .hero-stats { flex-direction: column; gap: 0; }
   .stat { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.06); }
   .stat:not(:first-child) { padding-left: 0; }
+  .juridica-grid { grid-template-columns: 1fr; }
+  .vertical-block { margin-bottom: 52px; }
   .form-row { grid-template-columns: 1fr; }
-  .footer-inner { grid-template-columns: 1fr; padding: 32px 24px 0; }
+  .footer-inner { grid-template-columns: 1fr 1fr; padding: 32px 24px 0; gap: 28px; }
   .footer-bottom { padding: 16px 24px; flex-direction: column; align-items: flex-start; }
   .container { padding: 0 24px; }
+}
+
+@media (max-width: 560px) {
+  .footer-inner { grid-template-columns: 1fr; }
 }
 
 @media (max-width: 480px) {
