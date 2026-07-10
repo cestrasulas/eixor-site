@@ -22,7 +22,9 @@ export function Footer() {
     <footer className="footer">
       <div className="footer-inner">
         <div className="footer-brand">
-          <img src="/logo-eixor-escura.png" alt="EIXOR" className="footer-logo-img" />
+          <div className="footer-logo">
+            <img src="/logo-eixor-escura.png" alt="EIXOR" className="footer-logo-img" />
+          </div>
           <p>
             Empresa de tecnologia que desenvolve plataformas com inteligência
             artificial para profissões — da gestão de serviços ao universo jurídico.
