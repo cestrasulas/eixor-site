@@ -65,9 +65,9 @@ export function Footer() {
           </ul>
           <p className="footer-col-title footer-col-title--spaced">Legal</p>
           <ul>
-            {/* páginas ainda não criadas — links reservados */}
-            <li><a href="/privacidade">Política de Privacidade</a></li>
-            <li><a href="/termos">Termos de Uso</a></li>
+            {/* páginas estáticas em public/ — modelos, revisar com o jurídico */}
+            <li><a href="/privacidade.html">Política de Privacidade</a></li>
+            <li><a href="/termos.html">Termos de Uso</a></li>
           </ul>
         </div>
       </div>
