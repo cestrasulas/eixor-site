@@ -572,6 +572,18 @@
   color: rgba(255,255,255,0.45);
   margin-bottom: 20px;
 }
+.footer-col-title--spaced { margin-top: 28px; }
+.footer-social {
+  display: flex;
+  gap: 14px;
+  margin-top: 18px;
+}
+.footer-social a {
+  color: rgba(255,255,255,0.45);
+  transition: color 0.2s;
+  display: inline-flex;
+}
+.footer-social a:hover { color: rgba(255,255,255,0.85); }
 .footer-col ul {
   list-style: none;
   display: flex;
@@ -761,13 +773,216 @@
 }
 .juridica-foot a:hover { opacity: 0.75; }
 
+/* ── Mockup de produto ── */
+.mockup-wrap {
+  margin-top: 24px;
+}
+.mockup {
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  box-shadow: 0 24px 60px -24px rgba(20,30,60,0.25);
+  background: #fff;
+}
+.mockup-bar {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 14px;
+  background: #f1f3f6;
+  border-bottom: 1px solid var(--border);
+}
+.mockup-dot {
+  width: 9px; height: 9px;
+  border-radius: 50%;
+  background: #d5d9e0;
+}
+.mockup-url {
+  margin-left: 10px;
+  font-size: 11px;
+  color: var(--text-muted);
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 5px;
+  padding: 3px 12px;
+}
+.mockup-img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  object-position: top;
+}
+.mockup-empty {
+  aspect-ratio: 16 / 9;
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  background: linear-gradient(180deg, #fafbfc, #f2f4f7);
+}
+.mockup-skeleton {
+  height: 14px;
+  border-radius: 6px;
+  background: #e6e9ee;
+}
+.mockup-skeleton.w40 { width: 40%; }
+.mockup-skeleton.w60 { width: 60%; }
+.mockup-skeleton.w80 { width: 80%; }
+.mockup-skeleton-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+}
+.mockup-skeleton-card {
+  height: 72px;
+  border-radius: 8px;
+  background: #e9edf2;
+  border: 1px solid #e2e6ec;
+}
+
+/* ── Como funciona ── */
+.como-wrap {
+  background: var(--body-bg);
+  padding: 88px 0;
+  border-bottom: 1px solid var(--border-alt);
+}
+.steps {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2px;
+  background: #e0e0e0;
+  border-radius: 12px;
+  overflow: hidden;
+}
+.step {
+  background: #fff;
+  padding: 32px 26px;
+  position: relative;
+}
+.step-num {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--blue);
+  letter-spacing: 0.14em;
+  margin-bottom: 16px;
+  opacity: 0.45;
+}
+.step-title {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 10px;
+  line-height: 1.35;
+}
+.step-desc {
+  font-size: 13px;
+  color: #777;
+  line-height: 1.72;
+}
+
+/* ── Compromissos ── */
+.compromissos-wrap {
+  background: var(--contato-bg);
+  padding: 88px 0;
+  border-top: 1px solid rgba(255,255,255,0.05);
+}
+.compromissos-wrap .eyebrow { color: var(--blue-light); }
+.compromissos-title {
+  font-size: clamp(26px, 3vw, 34px);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.15;
+  color: #fff;
+  margin-bottom: 48px;
+}
+.compromissos-title em { font-style: normal; color: var(--blue-light); }
+.compromissos-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+}
+.compromisso {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 12px;
+  padding: 26px 24px;
+  height: 100%;
+}
+.compromisso-title {
+  font-size: 14px;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 10px;
+  line-height: 1.4;
+}
+.compromisso-desc {
+  font-size: 13px;
+  color: rgba(255,255,255,0.55);
+  line-height: 1.7;
+}
+
+/* ── FAQ ── */
+.faq-wrap {
+  background: var(--body-bg);
+  padding: 88px 0;
+  border-bottom: 1px solid var(--border-alt);
+}
+.faq-list {
+  max-width: 760px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.faq-item {
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: #fff;
+  overflow: hidden;
+  transition: border-color 0.2s;
+}
+.faq-item[open] { border-color: var(--blue-border); }
+.faq-q {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 18px 22px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-primary);
+  cursor: pointer;
+  list-style: none;
+  user-select: none;
+}
+.faq-q::-webkit-details-marker { display: none; }
+.faq-icon {
+  font-size: 18px;
+  font-weight: 400;
+  color: var(--blue);
+  flex-shrink: 0;
+  transition: transform 0.2s;
+  line-height: 1;
+}
+.faq-item[open] .faq-icon { transform: rotate(45deg); }
+.faq-a {
+  padding: 0 22px 20px;
+  font-size: 13px;
+  color: var(--text-mid);
+  line-height: 1.8;
+  max-width: 640px;
+}
+
 /* ── Responsive ── */
 @media (max-width: 1024px) {
   .container { padding: 0 32px; }
   .nav { padding: 0 32px; }
   .hero-inner { padding: 60px 32px 0; }
-  .empresa-wrap, .produtos-wrap, .contato-wrap { padding: 64px 0; }
+  .empresa-wrap, .produtos-wrap, .contato-wrap,
+  .como-wrap, .compromissos-wrap, .faq-wrap { padding: 64px 0; }
   .pillars { grid-template-columns: 1fr; }
+  .steps { grid-template-columns: 1fr 1fr; }
+  .compromissos-grid { grid-template-columns: 1fr 1fr; }
   .produtos-grid { grid-template-columns: 1fr; }
   .juridica-grid { grid-template-columns: 1fr 1fr; }
   .contato-grid { grid-template-columns: 1fr; gap: 48px; }
@@ -805,6 +1020,8 @@
   .stat { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.06); }
   .stat:not(:first-child) { padding-left: 0; }
   .juridica-grid { grid-template-columns: 1fr; }
+  .steps { grid-template-columns: 1fr; }
+  .compromissos-grid { grid-template-columns: 1fr; }
   .vertical-block { margin-bottom: 52px; }
   .form-row { grid-template-columns: 1fr; }
   .footer-inner { grid-template-columns: 1fr 1fr; padding: 32px 24px 0; gap: 28px; }

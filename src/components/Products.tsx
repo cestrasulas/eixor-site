@@ -1,4 +1,5 @@
 import { FadeIn } from './Motion'
+import { ProductMockup } from './ProductMockup'
 
 // ── Produtos ─────────────────────────────────────────────────────────────────
 
@@ -113,6 +114,12 @@ export function Produtos() {
               >
                 Acessar EIXOR Barber →
               </a>
+            </div>
+          </FadeIn>
+          <FadeIn delay={2}>
+            {/* Trocar por src="/barber-screenshot.png" quando a captura real existir */}
+            <div className="mockup-wrap">
+              <ProductMockup alt="Interface do EIXOR Barber" />
             </div>
           </FadeIn>
         </div>
