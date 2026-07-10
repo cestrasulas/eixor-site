@@ -1,14 +1,6 @@
 // ── Footer ───────────────────────────────────────────────────────────────────
 
-// ícones inline com currentColor para herdarem a cor dos links
-function LinkedInIcon() {
-  return (
-    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-      <path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.36V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45z" />
-    </svg>
-  )
-}
-
+// ícone inline com currentColor para herdar a cor dos links
 function InstagramIcon() {
   return (
     <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
@@ -30,9 +22,8 @@ export function Footer() {
             artificial para profissões — da gestão de serviços ao universo jurídico.
           </p>
           <div className="footer-social">
-            {/* trocar pelos perfis reais quando existirem */}
-            <a href="https://www.linkedin.com/company/eixor" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><LinkedInIcon /></a>
-            <a href="https://www.instagram.com/eixor" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><InstagramIcon /></a>
+            <a href="https://instagram.com/eixor" target="_blank" rel="noopener noreferrer" aria-label="Instagram @eixor"><InstagramIcon /></a>
+            <a href="https://instagram.com/eixorbarber" target="_blank" rel="noopener noreferrer" aria-label="Instagram @eixorbarber"><InstagramIcon /></a>
           </div>
         </div>
         <div className="footer-col">
@@ -73,8 +64,7 @@ export function Footer() {
       </div>
       <div className="footer-bottom">
         <span className="footer-copy">© 2026 EIXOR. Todos os direitos reservados.</span>
-        {/* substituir pelo CNPJ real */}
-        <span className="footer-copy">EIXOR Tecnologia — CNPJ 00.000.000/0001-00</span>
+        {/* adicionar linha de CNPJ aqui quando a empresa for constituída */}
         <span className="footer-copy">contato@eixor.com.br</span>
       </div>
     </footer>
