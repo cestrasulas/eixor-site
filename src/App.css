@@ -47,23 +47,16 @@
   color: #111;
 }
 .nav.light .nav-cta:hover { background: rgba(0,0,0,0.05); }
-/* o arquivo do logo é um quadrado com muita margem transparente —
-   o container recorta a faixa central para exibir a marca em ~36px
-   sem transbordar a nav (substituir por asset recortado no futuro) */
+/* logos recortados justos ao texto (859x200) — dimensionamento direto */
 .nav-logo {
   display: flex;
   align-items: center;
   text-decoration: none;
-  height: 64px;
-  width: 150px;
-  overflow: hidden;
 }
 .nav-logo-img {
-  height: 230px;
+  height: 30px;
   width: auto;
-  max-width: none;
   display: block;
-  margin-left: -46px;
   transition: opacity 0.2s;
 }
 .nav-logo-img:hover { opacity: 0.85; }
@@ -559,21 +552,11 @@
   grid-template-columns: 1.4fr 1fr 1fr 1fr;
   gap: 48px;
 }
-/* mesmo recorte do logo aplicado no footer */
-.footer-logo {
-  height: 72px;
-  width: 165px;
-  overflow: hidden;
-  display: flex;
-  align-items: center;
-  margin-bottom: 16px;
-}
 .footer-logo-img {
-  height: 250px;
+  height: 34px;
   width: auto;
-  max-width: none;
   display: block;
-  margin-left: -50px;
+  margin-bottom: 16px;
   opacity: 0.85;
 }
 .footer-brand p {
