@@ -24,3 +24,7 @@ dist-ssr
 *.sw?
 *.zip
 files*/
+
+# Relatórios gerados pelo taxímetro de tokens
+token-meter-report.html
+token-meter-*.csv
