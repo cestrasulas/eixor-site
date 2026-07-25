@@ -72,5 +72,22 @@
   },
 
   "_commentFallback": "Usado quando o modelo do transcript nao esta na tabela acima. O relatorio marca essas linhas com (?) para voce saber que o custo e estimado.",
-  "fallback": { "label": "modelo desconhecido", "input": 5.0, "output": 25.0 }
+  "fallback": { "label": "modelo desconhecido", "input": 5.0, "output": 25.0 },
+
+  "_commentPlanLimitsReference": "NAO OFICIAL. A Anthropic nao publica limite de Pro/Max em tokens — o limite real e uma janela de 5h + teto semanal, visivel so na conta de cada usuario em Settings > Usage. Estes numeros sao estimativas de terceiros (blogs que mediram na pratica em 2026), reunidas aqui so como ordem de grandeza para quem esta parametrizando a ferramenta. Nunca trate como garantia — o consumo real varia com o tamanho de cada mensagem, o modelo escolhido e mudancas de politica da Anthropic.",
+  "planLimitsReference": {
+    "pro": {
+      "per5h": "aprox. 44.000 tokens equivalentes / 10 a 40 mensagens, variando com a complexidade",
+      "weekly": "sem teto semanal separado divulgado para Pro"
+    },
+    "max5": {
+      "per5h": "janela dobrada em 06/05/2026 em relação ao valor anterior",
+      "weekly": "aprox. 140 a 280 horas de Sonnet + 15 a 35 horas de Opus por semana"
+    },
+    "max20": {
+      "per5h": "janela dobrada em 06/05/2026 em relação ao valor anterior",
+      "weekly": "aprox. 240 a 480 horas de Sonnet + 24 a 40 horas de Opus por semana"
+    },
+    "note": "Sonnet e Opus sao contados em baldes separados nos planos Max. O total mensal nao e divulgado nem por terceiros — so da para medir olhando o proprio historico com este taximetro."
+  }
 }

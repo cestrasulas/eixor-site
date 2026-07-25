@@ -55,7 +55,9 @@ Exemplos
 
 // Overhead fixo de contexto, em tokens. Numeros medidos nos arquivos das skills
 // instaladas e no proprio transcript do Claude Code.
-const SKILL_OVERHEAD = {
+// Exportado: reaproveitado pelo consultor.js, que monta os mesmos `opts` a
+// partir das respostas do questionario em vez de flags de linha de comando.
+export const SKILL_OVERHEAD = {
   nenhuma: 0,
   adconsum: 1700,
   adcontrat: 1800,
@@ -63,7 +65,7 @@ const SKILL_OVERHEAD = {
   docx: 1700,
 }
 // Prompt de sistema + definicoes de ferramentas do Claude Code.
-const HARNESS_OVERHEAD = 14000
+export const HARNESS_OVERHEAD = 14000
 
 function fail(message) {
   process.stderr.write(`\nErro: ${message}\n${HELP}\n`)
@@ -168,7 +170,8 @@ function toTokens(opts, pricing, { pages, words, files }) {
 }
 
 // Monta as requisicoes que a tarefa geraria e soma o custo real de cada uma.
-function simulate(opts, pricing, model) {
+// Exportado: e o motor de calculo que o consultor.js reusa apos o questionario.
+export function simulate(opts, pricing, model) {
   const out = toTokens({ ...opts, model }, pricing, {
     pages: opts.pages,
     words: opts.words,
@@ -239,7 +242,7 @@ function simulate(opts, pricing, model) {
   }
 }
 
-function fixedContextFor(opts) {
+export function fixedContextFor(opts) {
   return HARNESS_OVERHEAD + (SKILL_OVERHEAD[opts.skill] || 0)
 }
 
@@ -342,4 +345,7 @@ function main() {
   )
 }
 
-main()
+// So roda o CLI quando o arquivo e executado diretamente. O consultor.js
+// importa `simulate` deste modulo e nao pode disparar este main() de brinde.
+const isMain = import.meta.url === `file://${process.argv[1]}`
+if (isMain) main()
