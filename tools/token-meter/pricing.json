@@ -13,10 +13,18 @@
   "_commentFx": "Cotacao usada para converter USD -> BRL. Ajuste manualmente ou passe --fx <valor> na linha de comando.",
   "fxUsdBrl": 5.4,
 
-  "_commentServerTools": "Ferramentas server-side cobradas por requisicao, nao por token. Confirme os valores na pagina de precos antes de usar como numero oficial.",
+  "_commentServerTools": "Confirmado na tabela oficial: busca web custa US$ 10 por 1.000 buscas; web fetch nao tem custo adicional alem dos tokens do conteudo trazido.",
   "serverTools": {
     "webSearchPer1kRequests": 10.0,
     "webFetchPer1kRequests": 0.0
+  },
+
+  "_commentTokenizer": "Modelos 4.7+ (inclui Opus 5 e Sonnet 5) usam tokenizador novo que gera ~30% mais tokens para o mesmo texto. Usado pelo estimate.js.",
+  "textEstimate": {
+    "tokensPerWordNewTokenizer": 1.8,
+    "tokensPerWordOldTokenizer": 1.35,
+    "wordsPerPage": 350,
+    "thinkingShareOfOutput": 0.5
   },
 
   "models": {
@@ -39,16 +47,28 @@
     "claude-opus-4-6": { "label": "Claude Opus 4.6", "input": 5.0, "output": 25.0 },
     "claude-opus-4-5": { "label": "Claude Opus 4.5", "input": 5.0, "output": 25.0 },
 
+    "claude-opus-4-1": { "label": "Claude Opus 4.1 (descontinuado)", "input": 15.0, "output": 75.0 },
+    "claude-opus-4-0": { "label": "Claude Opus 4 (aposentado)", "input": 15.0, "output": 75.0 },
+
     "claude-sonnet-5": {
       "label": "Claude Sonnet 5",
-      "input": 3.0,
-      "output": 15.0,
-      "note": "Preco promocional de 2/10 vale ate 2026-08-31 — troque aqui se quiser medir o valor promocional."
+      "input": 2.0,
+      "output": 10.0,
+      "note": "Preco promocional em vigor ate 2026-08-31. A partir de 01/09/2026 passa a 3.0 / 15.0 — troque estes dois valores na virada."
     },
     "claude-sonnet-4-6": { "label": "Claude Sonnet 4.6", "input": 3.0, "output": 15.0 },
     "claude-sonnet-4-5": { "label": "Claude Sonnet 4.5", "input": 3.0, "output": 15.0 },
 
-    "claude-haiku-4-5": { "label": "Claude Haiku 4.5", "input": 1.0, "output": 5.0 }
+    "claude-haiku-4-5": { "label": "Claude Haiku 4.5", "input": 1.0, "output": 5.0 },
+    "claude-haiku-3-5": { "label": "Claude Haiku 3.5 (aposentado)", "input": 0.8, "output": 4.0 }
+  },
+
+  "_commentPlans": "Precos das assinaturas em USD/mes. Os limites reais nao sao publicados em tokens: sao janelas de 5 horas mais teto semanal, e o consumo do app, do site e do Claude Code sai do mesmo bolso. Por isso o comparativo usa valor equivalente de API, nao contagem de tokens.",
+  "plans": {
+    "free": { "label": "Free", "monthly": 0, "proMultiple": 0 },
+    "pro": { "label": "Pro", "monthly": 20, "proMultiple": 1 },
+    "max5": { "label": "Max 5x", "monthly": 100, "proMultiple": 5 },
+    "max20": { "label": "Max 20x", "monthly": 200, "proMultiple": 20 }
   },
 
   "_commentFallback": "Usado quando o modelo do transcript nao esta na tabela acima. O relatorio marca essas linhas com (?) para voce saber que o custo e estimado.",

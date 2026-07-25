@@ -9,6 +9,7 @@ import { aggregate, cacheSavings, costOfRequest } from './lib/cost.js'
 import { dateTime, money, moneyShort, num, percent, tokens } from './lib/format.js'
 import { renderHtml } from './lib/html.js'
 import { loadPricing } from './lib/pricing.js'
+import { renderPlanSection } from './lib/plans.js'
 import { renderReport } from './lib/report.js'
 import { defaultProjectsRoot, listTranscripts, parseTranscript } from './lib/transcripts.js'
 
@@ -30,6 +31,7 @@ Recortes
 Saídas
   --watch [ms]             taxímetro ao vivo no terminal (padrão: 2000ms)
   --html [arquivo]         dashboard HTML (padrão: token-meter-report.html)
+  --plan                   compara o consumo medido com Free/Pro/Max 5x/Max 20x
   --json                   dados crus em JSON
   --csv <arquivo>          uma linha por requisição de API
 
@@ -48,6 +50,7 @@ function parseArgs(argv) {
     watch: null,
     html: null,
     json: false,
+    plan: false,
     csv: null,
     fx: null,
     project: null,
@@ -115,6 +118,9 @@ function parseArgs(argv) {
       }
       case '--json':
         opts.json = true
+        break
+      case '--plan':
+        opts.plan = true
         break
       case '--csv':
         opts.csv = next(i)
@@ -416,6 +422,9 @@ async function main() {
   }
 
   process.stdout.write(`${renderReport(agg, opts)}\n`)
+  if (opts.plan) {
+    process.stdout.write(`${renderPlanSection(agg, opts, pricing)}\n`)
+  }
 }
 
 main().catch((error) => {

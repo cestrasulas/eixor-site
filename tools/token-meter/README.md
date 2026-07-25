@@ -9,6 +9,9 @@ nenhuma dependência nova no projeto (só Node.js).
 npm run meter                    # resumo de tudo
 npm run meter -- --watch         # taxímetro ao vivo
 npm run meter -- --html          # dashboard HTML
+npm run meter -- --by turn       # quanto custou cada pedido seu
+npm run meter -- --plan          # qual assinatura suporta esse consumo
+npm run estimate -- --pages 18   # quanto custaria/custou uma peça de 18 páginas
 ```
 
 > As flags vêm depois de `--` porque o npm precisa saber que elas são do script,
@@ -37,6 +40,66 @@ linha conta o mesmo gasto 2–4 vezes. Aqui a deduplicação é por
 O resumo mostra os dois números lado a lado — tokens brutos e tokens
 efetivamente cobrados — justamente para você conseguir comparar com o
 indicador da conversa e entender a diferença.
+
+## Só mede o que ficou gravado
+
+`meter.js` lê transcripts. Se a sessão não deixou transcript, não há o que medir —
+e **isso não é recuperável depois**:
+
+| Onde você trabalhou | Deixa transcript? |
+|---|---|
+| Claude Code na sua máquina | **sim**, acumula em `~/.claude/projects` |
+| Claude Code na web / Cowork | some com o container quando a sessão encerra |
+| App ou site do Claude (conversa normal) | **não**, não existe transcript |
+
+Ou seja: uma inicial redigida semana passada no app, ou numa sessão web já
+encerrada, não pode ser medida retroativamente. Para essas, use o
+`estimate.js` abaixo. Para medir de verdade daqui pra frente, rode o trabalho
+em Claude Code na sua máquina e o `--by turn` passa a dar o custo peça por peça.
+
+## Estimador por peça (`estimate.js`)
+
+Reconstrói o custo de uma peça a partir do tamanho dela — serve tanto para
+orçar antes quanto para estimar o que já foi feito sem transcript.
+
+```bash
+# Uma inicial de 18 páginas, com 40 páginas de documentos anexados, 3 revisões
+npm run estimate -- --pages 18 --docs-pages 40 --skill adconsum --fx
+
+# Comparando modelos e projetando 30 peças por mês
+npm run estimate -- --pages 18 --docs-pages 40 --compare --volume 30 --fx
+
+# A partir de um arquivo de texto real que você já produziu
+npm run estimate -- --file peca.md --docs-file doc1.md,doc2.md
+```
+
+O modelo de custo reproduz o que a cobrança faz: o primeiro turno escreve o
+contexto no cache (1,25× ou 2×), os turnos de revisão leem do cache (0,1×), e a
+saída inclui o **raciocínio (thinking)**, que é cobrado como saída e não aparece
+na tela. Nesta sessão de código o thinking foi ~63% da saída cobrada — por isso
+ele entra no cálculo com 50% por padrão (ajuste com `--thinking`).
+
+Arquivos `.docx` e `.pdf` são binários e não dão para contar direto: salve como
+`.txt`/`.md` ou informe o número de páginas.
+
+É estimativa, não fatura. Os parâmetros de conversão (tokens por palavra,
+palavras por página) estão em `pricing.json` → `textEstimate`.
+
+## Qual plano suporta o consumo (`--plan`)
+
+```bash
+npm run meter -- --since 14d --plan --fx
+```
+
+Projeta o consumo medido para 30 dias e compara com Free, Pro, Max 5x, Max 20x e
+API paga por uso. Precisa de pelo menos 1 hora de amostra; com poucos dias a
+projeção linear erra fácil, então quanto mais dias de uso normal, melhor.
+
+**A comparação é por valor, não por tokens** — e isso é uma limitação real, não
+uma escolha de preguiça: a Anthropic não publica limite em tokens para Pro/Max.
+O limite é por janela de 5 horas mais teto semanal, e o consumo do site, do app
+e do Claude Code sai do mesmo bolso. O que dá para afirmar com honestidade é
+"seu uso equivale a US$ X de API; a assinatura Y custa Z".
 
 ## Recortes
 
@@ -71,27 +134,36 @@ lado enquanto trabalha. Ele mostra o total, o gasto de hoje, o gasto dos último
 
 ## Preços
 
-Tudo vem de [`pricing.json`](./pricing.json), em USD por milhão de tokens (MTok).
-Os valores estão como na tabela pública de julho/2026:
+Tudo vem de [`pricing.json`](./pricing.json), em USD por milhão de tokens (MTok),
+conferido contra a
+[tabela oficial](https://platform.claude.com/docs/en/about-claude/pricing) em
+julho/2026:
 
 | Modelo | Entrada | Saída |
 |---|---:|---:|
 | Fable 5 / Mythos 5 | $10 | $50 |
 | Opus 5 / 4.8 / 4.7 / 4.6 / 4.5 | $5 | $25 |
-| Sonnet 5 / 4.6 / 4.5 | $3 | $15 |
+| **Sonnet 5** | **$2** | **$10** |
+| Sonnet 4.6 / 4.5 | $3 | $15 |
 | Haiku 4.5 | $1 | $5 |
+| Opus 4.1 / 4 (descontinuados) | $15 | $75 |
+
+⚠️ **Sonnet 5 está em preço promocional de $2/$10 até 31/08/2026.** A partir de
+01/09 passa a $3/$15 — troque os dois valores no `pricing.json` na virada, ou as
+estimativas de Sonnet vão sair 33% baratas demais.
 
 Multiplicadores de cache: leitura `0.1×`, escrita `1.25×` (5min) / `2×` (1h).
 Opus 5 e 4.8 em *fast mode* custam $10/$50 — a ferramenta detecta pelo campo
-`speed` do transcript e cobra a tarifa certa.
+`speed` do transcript e cobra a tarifa certa. Busca web custa $10 por 1.000
+buscas; web fetch não tem custo extra além dos tokens do conteúdo trazido.
+
+Modelos 4.7+ (Opus 5, Sonnet 5) usam tokenizador novo que gera ~30% mais tokens
+para o mesmo texto — o `estimate.js` já leva isso em conta.
 
 Se a Anthropic mudar os preços, edite o JSON — nada no código precisa mudar.
 Modelos fora da tabela usam o `fallback` e o relatório marca o total como
-estimado, para você não confundir com número fechado.
-
-Dois valores no `pricing.json` merecem atenção: `fxUsdBrl` (a cotação, que você
-deve atualizar) e `serverTools` (custo por requisição de busca web — confirme na
-página de preços antes de tratar como oficial; o padrão é $10 por 1.000 buscas).
+estimado, para você não confundir com número fechado. O único valor que você
+precisa manter na mão é `fxUsdBrl`, a cotação do dólar.
 
 ## Limites do que isso mede
 
@@ -111,13 +183,15 @@ página de preços antes de tratar como oficial; o padrão é $10 por 1.000 busc
 
 ```
 tools/token-meter/
-  meter.js              # CLI: argumentos, modo watch, saídas
-  pricing.json          # tabela de preços editável
+  meter.js              # CLI de medição: argumentos, modo watch, saídas
+  estimate.js           # CLI de estimativa por peça
+  pricing.json          # tabela de preços e parâmetros editáveis
   lib/
     transcripts.js      # acha e parseia os .jsonl, deduplica requisições
     cost.js             # custo por requisição e agregações
     pricing.js          # resolve id de modelo -> preço
     format.js           # números, moeda e tabelas em pt-BR
+    plans.js            # comparativo de assinaturas
     report.js           # relatório de terminal
     html.js             # dashboard HTML
 ```
